@@ -1,3 +1,4 @@
+import TextureKeys from '../consts/TextureKeys'
 import SceneKeys from '../consts/SceneKeys'
 
 export default class Preloader extends Phaser.Scene {
@@ -6,7 +7,8 @@ export default class Preloader extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('elephant', 'images/elephant.png')
+    this.load.image(TextureKeys.Elephant, 'images/elephant.png')
+    this.load.image(TextureKeys.RedParticle, 'images/red.png')
   }
 
   create() {

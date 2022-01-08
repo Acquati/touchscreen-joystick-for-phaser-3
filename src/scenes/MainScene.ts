@@ -1,4 +1,5 @@
 import SceneKeys from '../consts/SceneKeys'
+import TextureKeys from '../consts/TextureKeys'
 import GameConfig from '../config'
 
 export default class MainScene extends Phaser.Scene {
@@ -51,12 +52,21 @@ export default class MainScene extends Phaser.Scene {
     this.joyStick.createCursorKeys()
     this.dumpJoyStickState()
 
+    const particles = this.add.particles(TextureKeys.RedParticle)
+    const emitter = particles.createEmitter({
+      speed: 100,
+      scale: { start: 0.5, end: 0 },
+      blendMode: 'ADD'
+    })
+
     this.player = this.physics.add.image(
       Math.floor(Number(GameConfig.width) / 2),
       Math.floor(Number(GameConfig.height) / 2),
-      'elephant'
+      TextureKeys.Elephant
     )
     this.player.setCollideWorldBounds(true)
+
+    emitter.startFollow(this.player)
 
     this.upKeyDebug = this.add.text(
       Math.floor(Number(GameConfig.width) / 2),

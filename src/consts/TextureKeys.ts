@@ -1,5 +1,5 @@
 enum TextureKeys {
-  PhaserLogo = 'phaser-logo',
+  Elephant = 'elephant',
   RedParticle = 'red-particle'
 }
 
