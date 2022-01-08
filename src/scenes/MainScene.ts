@@ -17,6 +17,22 @@ export default class MainScene extends Phaser.Scene {
   }
 
   create() {
+    const particles = this.add.particles(TextureKeys.RedParticle)
+    const emitter = particles.createEmitter({
+      speed: 100,
+      scale: { start: 0.5, end: 0 },
+      blendMode: 'ADD'
+    })
+
+    this.player = this.physics.add.image(
+      Math.floor(Number(GameConfig.width) / 2),
+      Math.floor(Number(GameConfig.height) / 2),
+      TextureKeys.Elephant
+    )
+    this.player.setCollideWorldBounds(true)
+
+    emitter.startFollow(this.player)
+
     this.cursors = this.input.keyboard.createCursorKeys()
 
     const joyStickConfig = {
@@ -52,29 +68,13 @@ export default class MainScene extends Phaser.Scene {
     this.joyStick.createCursorKeys()
     this.dumpJoyStickState()
 
-    const particles = this.add.particles(TextureKeys.RedParticle)
-    const emitter = particles.createEmitter({
-      speed: 100,
-      scale: { start: 0.5, end: 0 },
-      blendMode: 'ADD'
-    })
-
-    this.player = this.physics.add.image(
-      Math.floor(Number(GameConfig.width) / 2),
-      Math.floor(Number(GameConfig.height) / 2),
-      TextureKeys.Elephant
-    )
-    this.player.setCollideWorldBounds(true)
-
-    emitter.startFollow(this.player)
-
     this.upKeyDebug = this.add.text(
       Math.floor(Number(GameConfig.width) / 2),
       10,
       'Up'
     )
     this.rightKeyDebug = this.add.text(
-      Number(GameConfig.width) - 130,
+      Number(GameConfig.width) - 200,
       Math.floor(Number(GameConfig.height) / 2) - 40,
       'Right'
     )
