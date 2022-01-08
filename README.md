@@ -1,10 +1,12 @@
 <p align="center">
-  <img width=60% src="public/images/phaser3-logo.png">
+  <img width=60% src="public/images/touchscreen-joystick-print.png">
 </p>
 
-# Phaser 3 Typescript Template
+# Touchscreen Joystick for Phaser 3
 
-A [Phaser 3 Framework](https://phaser.io/phaser3) template for [Typescript](https://www.typescriptlang.org/) compiled with [Parcel v2](https://v2.parceljs.org/).
+A touchscreen joystick made with [phaser3-rex-plugins](https://rexrainbow.github.io/phaser3-rex-notes/docs/site/virtualjoystick/) for [Phaser 3 Framework](https://phaser.io/phaser3).
+
+The touchscreen joystick mimics the keyboard keys ("up", "right", "down", "left") and moves the object in 8 directions, they both work on this example.
 
 ## Setup
 
@@ -15,8 +17,8 @@ Install [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/
 ### Installing
 
 ```bash
-git clone https://github.com/acquati/phaser-3-typescript-template.git
-cd phaser-3-typescript-template
+git clone https://github.com/acquati/touchscreen-joystick-for-phaser-3.git
+cd touchscreen-joystick-for-phaser-3
 yarn install
 
 # Development

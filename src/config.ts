@@ -1,3 +1,4 @@
+import VirtualJoystickPlugin from 'phaser3-rex-plugins/plugins/virtualjoystick-plugin.js'
 import Preloader from './scenes/Preloader'
 import MainScene from './scenes/MainScene'
 
@@ -19,14 +20,23 @@ const GameConfig: Phaser.Types.Core.GameConfig = {
     default: 'arcade',
     arcade: {
       debug: true,
-      gravity: { y: 200 }
+      gravity: { y: 0 }
     }
   },
   pixelArt: false,
   // scale: {
   //   zoom: 2
   // },
-  scene: [Preloader, MainScene]
+  scene: [Preloader, MainScene],
+  plugins: {
+    global: [
+      {
+        key: 'rexVirtualJoystick',
+        plugin: VirtualJoystickPlugin,
+        start: true
+      }
+    ]
+  }
 }
 
 export default GameConfig

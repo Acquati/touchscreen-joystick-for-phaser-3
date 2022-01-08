@@ -1,9 +1,10 @@
 {
-  "name": "phaser-3-typescript-template",
+  "name": "touchscreen-joystick-for-phaser-3",
   "version": "1.0.0",
-  "description": "A Phaser 3 Framework template for Typescript compiled with Parcel v2.",
+  "description": "A touchscreen joystick made with phaser3-rex-plugins for Phaser 3 Framework.",
   "license": "MIT",
   "keywords": [
+    "Touchscreen Joystick",
     "Phaser",
     "Phaser 3",
     "Phaser3",
@@ -20,9 +21,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/acquati/phaser-3-typescript-template.git"
+    "url": "git+https://github.com/acquati/touchscreen-joystick-for-phaser-3.git"
   },
-  "homepage": "https://github.com/acquati/phaser-3-typescript-template.git",
+  "homepage": "https://github.com/acquati/touchscreen-joystick-for-phaser-3.git",
   "scripts": {
     "dev": "parcel src/index.html -p 8080",
     "build": "parcel build src/index.html -p 8080 --out-dir dist",
@@ -47,6 +48,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "phaser": "^3.55.2"
+    "phaser": "^3.55.2",
+    "phaser3-rex-plugins": "^1.1.65"
   }
 }
