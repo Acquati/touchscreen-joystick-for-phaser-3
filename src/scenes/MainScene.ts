@@ -37,8 +37,8 @@ export default class MainScene extends Phaser.Scene {
 
     const joyStickConfig = {
       radius: 80,
-      x: 30,
-      y: 30
+      x: 20,
+      y: 20
     }
 
     this.joyStick = this.plugins
