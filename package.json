@@ -26,7 +26,8 @@
   "homepage": "https://github.com/acquati/touchscreen-joystick-for-phaser-3.git",
   "scripts": {
     "dev": "parcel src/index.html -p 8080",
-    "build": "parcel build src/index.html -p 8080 --out-dir dist",
+    "build": "parcel build src/index.html --dist-dir dist",
+    "build-itchio": "parcel build src/index.html --dist-dir dist --public-url ./",
     "start": "parcel serve src/index.html -p 8080",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"

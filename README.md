@@ -8,6 +8,8 @@ A touchscreen joystick made with [phaser3-rex-plugins](https://rexrainbow.github
 
 The touchscreen joystick mimics the keyboard keys ("up", "right", "down", "left") and moves the object in 8 directions, they both work on this example.
 
+Access [demo on itch.io](https://acquati.itch.io/touchscreen-joystick-for-phaser-3).
+
 ## Setup
 
 ### Prerequisites

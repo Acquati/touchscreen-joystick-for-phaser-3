@@ -36,9 +36,9 @@ export default class MainScene extends Phaser.Scene {
     this.cursors = this.input.keyboard.createCursorKeys()
 
     const joyStickConfig = {
-      radius: 100,
-      x: 50,
-      y: 50
+      radius: 80,
+      x: 30,
+      y: 30
     }
 
     this.joyStick = this.plugins
@@ -58,9 +58,9 @@ export default class MainScene extends Phaser.Scene {
           0.2
         ),
         dir: '8dir', // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
-        fixed: true,
-        forceMin: 10,
-        enable: true
+        // fixed: true,
+        forceMin: 10
+        // enable: true
       })
       .on('update', this.dumpJoyStickState, this)
 
