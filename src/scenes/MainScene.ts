@@ -65,7 +65,6 @@ export default class MainScene extends Phaser.Scene {
       .on('update', this.dumpJoyStickState, this)
 
     this.text = this.add.text(10, 10, '')
-    this.joyStick.createCursorKeys()
     this.dumpJoyStickState()
 
     this.upKeyDebug = this.add.text(
