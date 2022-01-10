@@ -1,10 +1,12 @@
+import VirtualJoyStick from 'phaser3-rex-plugins/plugins/virtualjoystick'
+import VirtualJoyStickPlugin from 'phaser3-rex-plugins/plugins/virtualjoystick-plugin'
 import SceneKeys from '../consts/SceneKeys'
 import TextureKeys from '../consts/TextureKeys'
 import GameConfig from '../config'
 
 export default class MainScene extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
-  private joyStick!: any
+  private joyStick!: VirtualJoyStick
   private text!: Phaser.GameObjects.Text
   private player!: Phaser.Types.Physics.Arcade.ImageWithDynamicBody
   private leftKeyDebug!: Phaser.GameObjects.Text
@@ -41,28 +43,31 @@ export default class MainScene extends Phaser.Scene {
       y: 20
     }
 
-    this.joyStick = this.plugins
-      .get('rexVirtualJoystick')
-      .add(this, {
-        x: joyStickConfig.radius + joyStickConfig.x,
-        y:
-          Number(GameConfig.height) -
-          (joyStickConfig.radius + joyStickConfig.y),
-        radius: joyStickConfig.radius,
-        base: this.add.circle(0, 0, joyStickConfig.radius, 0x888888, 0.2),
-        thumb: this.add.circle(
-          0,
-          0,
-          Math.floor(joyStickConfig.radius / 2),
-          0xcccccc,
-          0.2
-        ),
-        dir: '8dir', // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
-        // fixed: true,
-        forceMin: 10
-        // enable: true
-      })
-      .on('update', this.dumpJoyStickState, this)
+    const joyStickPlugin = this.plugins.get(
+      'rexVirtualJoystick'
+    ) as VirtualJoyStickPlugin
+
+    this.joyStick = joyStickPlugin.add(this, {
+      x: joyStickConfig.radius + joyStickConfig.x,
+      y: Number(GameConfig.height) - (joyStickConfig.radius + joyStickConfig.y),
+      radius: joyStickConfig.radius,
+      base: this.add.circle(0, 0, joyStickConfig.radius, 0x888888, 0.2),
+      thumb: this.add.circle(
+        0,
+        0,
+        Math.floor(joyStickConfig.radius / 2),
+        0xcccccc,
+        0.2
+      ),
+      dir: '8dir', // 'up&down'|0|'left&right'|1|'4dir'|2|'8dir'|3
+      // fixed: true,
+      forceMin: 10
+      // enable: true
+    })
+
+    const joyStickEvent = this.joyStick as unknown as Phaser.Events.EventEmitter
+
+    joyStickEvent.on('update', this.dumpJoyStickState, this)
 
     this.text = this.add.text(10, 10, '')
     this.dumpJoyStickState()
